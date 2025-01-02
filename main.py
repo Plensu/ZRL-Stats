@@ -271,7 +271,7 @@ def current_season():
     select_session = st.selectbox("Select Race",season_sessions)
     select_class = st.selectbox("Select Class", season_conf["classes"].keys())
     
-    json_data = JsonQ(f'{current_season_dir}\\{select_session}.json')
+    json_data = JsonQ(f'{current_season_dir}/{select_session}.json')
     laps_by_drivers = json_data.at('laps').group_by('driver').get()
     drivers = [d for d in laps_by_drivers.keys() if d in season_conf["classes"][select_class]]
     drivers_select_options = drivers
