@@ -19,7 +19,7 @@ import numpy as np
 import altair as alt
 
 season = 16
-season_dir = "Data\\Season"
+season_dir = "Data/Season"
 
 def convert_time(milliseconds):
     seconds = round((milliseconds/1000)%60, 3)
