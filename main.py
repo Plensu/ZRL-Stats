@@ -19,7 +19,7 @@ import numpy as np
 import altair as alt
 
 season = 16
-season_dir = "Data\\Season"
+season_dir = "Data/Season"
 
 def convert_time(milliseconds):
     seconds = round((milliseconds/1000)%60, 3)
@@ -266,12 +266,12 @@ def driverAnalysis(driver_class, driver_lap_data):
 
 def current_season():
     current_season_dir = f"{season_dir} {season}"
-    season_conf = json.load(open(f'{current_season_dir}\conf.json'))
+    season_conf = json.load(open(f'{current_season_dir}/conf.json'))
     season_sessions = [f.split('.')[0] for f in listdir(f"{current_season_dir}") if isfile(join(current_season_dir, f)) and f != "conf.json"]
     select_session = st.selectbox("Select Race",season_sessions)
     select_class = st.selectbox("Select Class", season_conf["classes"].keys())
     
-    json_data = JsonQ(f'{current_season_dir}\\{select_session}.json')
+    json_data = JsonQ(f'{current_season_dir}/{select_session}.json')
     laps_by_drivers = json_data.at('laps').group_by('driver').get()
     drivers = [d for d in laps_by_drivers.keys() if d in season_conf["classes"][select_class]]
     drivers_select_options = drivers
