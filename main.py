@@ -266,7 +266,7 @@ def driverAnalysis(driver_class, driver_lap_data):
 
 def current_season():
     current_season_dir = f"{season_dir} {season}"
-    season_conf = json.load(open(f'{current_season_dir}\conf.json'))
+    season_conf = json.load(open(f'{current_season_dir}/conf.json'))
     season_sessions = [f.split('.')[0] for f in listdir(f"{current_season_dir}") if isfile(join(current_season_dir, f)) and f != "conf.json"]
     select_session = st.selectbox("Select Race",season_sessions)
     select_class = st.selectbox("Select Class", season_conf["classes"].keys())
