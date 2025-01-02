@@ -1,0 +1,37 @@
+{
+    "classes": {
+        "Gold": [
+            "Jonathan Clifford (CLI)",
+            "David Macoretta (MAC)",
+            "Chase Gordon (GOR)",
+            "JP  Belanger (BEL)",
+            "Kyle Easton (EAS)"
+        ],
+        "Silver": [
+            "Dale Rodman Jr. III (DRJ)",
+            "Matt Lung (LUN)",
+            "Karl Maurer (MAU)",
+            "Sean Collis (COL)",
+            "Glen Pineo (PIN)",
+            "Adam Lynch (LYN)",
+            "terry cutting (CUT)",
+            "Isaiah Pomares (POM)",
+            "Taylor Jones (JON)",
+            "Shane Swearingen (SWE)",
+            "Lenny Dyjkstra (DYJ)",
+            "Louie Sanz (SAN)",
+            "christian landry (LAN)",
+            "Olivier Languedoc (LAN)",
+            "Dustin Fletcher (FLE)",
+            "Dale Rodman Jr III (ROD)"
+        ],
+        "GT4": [
+            "Christopher Larson (LAR)",
+            "Alex Schimbeno (SCH)",
+            "Simon Beaudry (BEA)",
+            "Mathieu Reid (REI)",
+            "Toby Yao (YAO)",
+            "Martin Mugerian (MUG)"
+        ]
+    }
+}
