@@ -5,7 +5,7 @@ from os.path import isfile, join
 import statistics
 from collections import OrderedDict
 
-season = 16
+season = 17
 season_dir = "Data\\Season"
 
 # PositionInClass
@@ -29,16 +29,44 @@ def getGroupedAnalysisData(sessionName):
 
             total_lap_count = driver_lap_query_conn.count()
             valid_lap_count = driver_lap_query_conn.where('flags', '=', 0).where("lapType", "=", 2).count()
-            fastest_lap = driver_lap_query_conn.where('flags', '=', 0).min("lapTime")
-            fastest_sector1 = driver_lap_query_conn.where('flags', '=', 0).min("sector1")
-            fastest_sector2 = driver_lap_query_conn.where('flags', '=', 0).min("sector2")
-            fastest_sector3 = driver_lap_query_conn.where('flags', '=', 0).min("sector3")
-            average_lap = driver_lap_query_conn.where('flags', '=', 0).where("lapType", "=", 2).avg('lapTime')
+            try:
+                fastest_lap = driver_lap_query_conn.where('flags', '=', 0).min("lapTime")
+            except:
+                fastest_lap = 999999
+            try:
+                fastest_sector1 = driver_lap_query_conn.where('flags', '=', 0).min("sector1")
+            except:
+                fastest_sector1 = 99999
+            try:
+                fastest_sector2 = driver_lap_query_conn.where('flags', '=', 0).min("sector2")
+            except:
+                fastest_sector2 = 99999
+            try:
+                fastest_sector3 = driver_lap_query_conn.where('flags', '=', 0).min("sector3")
+            except:
+                fastest_sector3 = 99999
+            try:
+                average_lap = driver_lap_query_conn.where('flags', '=', 0).where("lapType", "=", 2).avg('lapTime')
+            except:
+                average_lap = 999999
             optimal_lap = fastest_sector1 + fastest_sector2 + fastest_sector3
-            stddev_valid_laps = statistics.stdev([lapTime['lapTime'] for lapTime in driver_lap_query_conn.where('flags', '=', 0).where("lapType", "=", 2).get()])
-            stddev_all_laps = statistics.stdev([lapTime['lapTime'] for lapTime in driver_lap_data[driver]])
+            try:
+                stddev_valid_laps = statistics.stdev([lapTime['lapTime'] for lapTime in driver_lap_query_conn.where('flags', '=', 0).where("lapType", "=", 2).get()])
+            except:
+                stddev_valid_laps = 999999
+            try:
+                stddev_all_laps = statistics.stdev([lapTime['lapTime'] for lapTime in driver_lap_data[driver]])
+            except:
+                stddev_all_laps = 999999
             last_lap_time_stamp = driver_lap_query_conn.sum('lapTime')
-            last_lap_position = driver_lap_query_conn.last()['position']
+            try:
+                last_lap_position = driver_lap_query_conn.last()['position']
+            except:
+                last_lap_position = driver_lap_data[driver][-1]['position']
+            try:
+                valid_average_lap_time = driver_lap_query_conn.avg('lapTime')
+            except:
+                valid_average_lap_time = 999999
 
 
             groupedData[driver_class][driver] = {
@@ -46,7 +74,7 @@ def getGroupedAnalysisData(sessionName):
                 'valid_laps': valid_lap_count,
                 'valid_laps_percentage': round((valid_lap_count/total_lap_count)*100, 2),
                 'average_lap_time': average_lap,
-                'valid_average_lap_time': driver_lap_query_conn.avg('lapTime'),
+                'valid_average_lap_time': valid_average_lap_time,
                 'fastest_lap': fastest_lap,
                 'fastest_s1': fastest_sector1,
                 'fastest_s2': fastest_sector2,
@@ -129,5 +157,5 @@ def addClassPositionData(sessionName):
     race_json['laps'] = new_new_laps
     json.dump(race_json, open(join(current_season_dir, f"{sessionName}.json"), 'w'))
 
-#addClassPositionData("Kyalami copy")
-getGroupedAnalysisData('Kyalami copy')
+#addClassPositionData("Silverstone")
+getGroupedAnalysisData('Silverstone')

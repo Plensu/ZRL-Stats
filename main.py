@@ -18,7 +18,7 @@ import statistics
 import numpy as np
 import altair as alt
 
-season = 16
+season = 17
 season_dir = "Data/Season"
 
 def convert_time(milliseconds):

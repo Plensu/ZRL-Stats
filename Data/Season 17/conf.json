@@ -1,0 +1,40 @@
+{
+    "classes": {
+        "Gold": [
+            "Jonathan Clifford (CLI)",
+            "Chase Gordon (GOR)",
+            "Kyle Easton (EAS)",
+            "Christopher Larson (LAR)",
+            "Alex Schimbeno (SCH)",
+            "Toby Yao (YAO)",
+            "Dale Rodman Jr III (ROD)",
+            "Matt Lung (LUN)",
+            "Karl Maurer (MAU)",
+            "Sean Collis (COL)",
+            "Dustin Fletcher (FLE)",
+            "Kaler Nicholson (NIC)",
+            "Sara Liu (LIU)",
+            "Kenneth Portis II (POR)",
+            "Jeremy Wirges (WIR)"
+        ],
+        "Silver": [
+            "Adam Lynch (LYN)",
+            "Isaiah Pomares (POM)",
+            "Taylor Jones (JON)",
+            "Shane Swearingen (SWE)",
+            "Lenny Dyjkstra (DYJ)",
+            "Louie Sanz (SAN)",
+            "christian landry (LAN)",
+            "Olivier Languedoc (LAN)",
+            "Griffin Perry (PER)",
+            "Martin Mugerian (MUG)",
+            "Kevin Godin (GOD)",
+            "Philippe Maisonneuve (MAI)",
+            "francois richard (RIC)",
+            "Marc-Andre Hamel (HAM)",
+            "Zoik Jean (JEA)",
+            "Syarif Dairani (DAI)",
+            "Aguedo Martinez (MAR)"
+        ]
+    }
+}
