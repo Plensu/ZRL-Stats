@@ -5,7 +5,7 @@ from os.path import isfile, join
 import statistics
 from collections import OrderedDict
 
-season = 17
+season = 18
 season_dir = "Data\\Season"
 
 # PositionInClass
@@ -157,5 +157,5 @@ def addClassPositionData(sessionName):
     race_json['laps'] = new_new_laps
     json.dump(race_json, open(join(current_season_dir, f"{sessionName}.json"), 'w'))
 
-addClassPositionData("Spa")
-getGroupedAnalysisData('Spa')
+addClassPositionData("Barcelona")
+getGroupedAnalysisData('Barcelona')
