@@ -157,5 +157,5 @@ def addClassPositionData(sessionName):
     race_json['laps'] = new_new_laps
     json.dump(race_json, open(join(current_season_dir, f"{sessionName}.json"), 'w'))
 
-addClassPositionData("Kyalami")
-getGroupedAnalysisData('Kyalami')
+addClassPositionData("RedbullRing")
+getGroupedAnalysisData('RedbullRing')
