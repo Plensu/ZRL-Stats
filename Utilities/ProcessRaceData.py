@@ -5,8 +5,8 @@ from os.path import isfile, join
 import statistics
 from collections import OrderedDict
 
-season = 18
-season_dir = "Data\\Season"
+season = 19
+season_dir = "Data/Season"
 
 # PositionInClass
 # PositionInClassStartLap
@@ -16,7 +16,7 @@ def getGroupedAnalysisData(sessionName):
     groupedData = {}
     current_season_dir = f"{season_dir} {season}"
     grouped_file = join(current_season_dir, "grouped", f"{sessionName}.json")
-    season_conf = json.load(open(f'{current_season_dir}\\conf.json'))
+    season_conf = json.load(open(f'{current_season_dir}/conf.json'))
     season_session = join(current_season_dir, f"{sessionName}.json")
     for driver_class in season_conf['classes'].keys():
         groupedData[driver_class] = {}
@@ -110,7 +110,7 @@ def getQualData(sessionName, driver):
 def addClassPositionData(sessionName):
     new_laps = []
     current_season_dir = f"{season_dir} {season}"
-    season_conf = json.load(open(f'{current_season_dir}\\conf.json'))
+    season_conf = json.load(open(f'{current_season_dir}/conf.json'))
     season_session = join(current_season_dir, f"{sessionName}.json")
     if not isfile(season_session):
         return "File not found."
@@ -157,5 +157,5 @@ def addClassPositionData(sessionName):
     race_json['laps'] = new_new_laps
     json.dump(race_json, open(join(current_season_dir, f"{sessionName}.json"), 'w'))
 
-addClassPositionData("RedbullRing")
-getGroupedAnalysisData('RedbullRing')
+addClassPositionData("Zolder")
+getGroupedAnalysisData('Zolder')
