@@ -5,3 +5,5 @@ Include
 share
 
 pyvenv.cfg
+bin
+.DS_Store
